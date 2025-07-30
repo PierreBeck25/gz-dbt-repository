@@ -77,9 +77,6 @@ sources:
           - name: paid_source
             description: where the source from
           - name: campaign_key
-            tests:
-              - unique
-              - not_null
             description: key of the campaign
           - name: camPGN_name
             description: idk
@@ -89,6 +86,9 @@ sources:
             description: idk
           - name: click
             description: click on the page
+        tests:
+          - unique:
+              column_name: "(campaign_key || '-' || date_date)"
 
       - name: criteo
         identifier: raw_gz_criteo
@@ -100,9 +100,6 @@ sources:
             description: where the source from
           - name: campaign_key
             description: key of the campaign
-            tests:
-              - unique
-              - not_null
           - name: camPGN_name
             description: idk
           - name: ads_cost
@@ -111,6 +108,9 @@ sources:
             description: idk
           - name: click
             description: click on the page
+        tests:
+          - unique:
+              column_name: "(campaign_key || '-' || date_date)"
 
       - name: bing
         identifier: raw_gz_bing
@@ -121,9 +121,6 @@ sources:
           - name: paid_source
             description: where the source from
           - name: campaign_key
-            tests:
-              - unique
-              - not_null
             description: key of the campaign
           - name: camPGN_name
             description: idk
@@ -133,6 +130,9 @@ sources:
             description: idk
           - name: click
             description: click on the page
+        tests:
+          - unique:
+              column_name: "(campaign_key || '-' || date_date)"
 
       - name: adwords
         identifier: raw_gz_adwords
@@ -143,9 +143,6 @@ sources:
           - name: paid_source
             description: where the source from
           - name: campaign_key
-            tests:
-              - unique
-              - not_null
             description: key of the campaign
           - name: camPGN_name
             description: idk
@@ -155,3 +152,6 @@ sources:
             description: idk
           - name: click
             description: click on the page
+        tests:
+          - unique:
+              column_name: "(campaign_key || '-' || date_date)"
