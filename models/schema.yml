@@ -133,6 +133,9 @@ sources:
         tests:
           - unique:
               column_name: "(campaign_key || '-' || date_date)"
+          - not_null: 
+              column_name: "(campaign_key || '-' || date_date)"
+              
 
       - name: adwords
         identifier: raw_gz_adwords
@@ -155,3 +158,15 @@ sources:
         tests:
           - unique:
               column_name: "(campaign_key || '-' || date_date)"
+models: 
+  - name: int_campaigns
+    tests:
+      - unique:
+          column_name: "(campaign_key || '-' || date_date)"
+      - not_null:
+          column_name: "(campaign_key || '-' || date_date)"
+  - name: int_campaigns_day
+    tests:
+      - unique:
+         column_name: date_date
+
