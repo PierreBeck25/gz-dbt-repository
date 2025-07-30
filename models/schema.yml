@@ -6,39 +6,64 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
+        description: sales of Greenweez
         columns:
           - name: date_date
-            description: date of purchase
+            description: purchase_date
+            tests:
+              - not_null
           - name: orders_id
-            description: the id orders
+            description: order_id
+            tests:
+              - not_null
           - name: pdt_id
-            description: id products
+            description: product_id
           - name: revenue
-            description: income
+            description: total revenue of products by order
+            tests:
+              - not_null
           - name: quantity
-            description: quantity product sales
+            description: number of products bought
+            tests:
+              - not_null
         tests:
           - unique:
-              column_name: "(orders_id||'-'||pdt_id)"
+              column_name: "(orders_id || '-' || pdt_id)"
+          
       - name: product
         identifier: raw_gz_product
+        description: list of Greenweez products
         columns:
           - name: products_id
-            description: id of products
+            description: product_id
             tests:
-              - unique
+              - not_null
           - name: purchase_price
-            description: price of purchase
+            description: price of the product
+        tests:
+          - unique:
+              column_name: products_id
+          
       - name: ship
         identifier: raw_gz_ship
+        description: tracking Greenweez shipping
         columns:
           - name: orders_id
-            description: the id orders
+            description: order_id
+            tests:
+              - not_null
           - name: shipping_fee
-            description: fee of shipping
-          - name: pdt_id
-            description: id of product
+            description: shipping fee
+            tests:
+              - not_null
           - name: logcost
-            description: log of cost
+            description: price of log
+            tests:
+              - not_null 
           - name: ship_cost
-            description: cost of every shipping
+            description: costs of ship
+            tests:
+              - not_null     
+        tests:
+          - unique:
+              column_name: orders_id
