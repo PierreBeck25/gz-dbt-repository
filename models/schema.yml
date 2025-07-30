@@ -77,6 +77,9 @@ sources:
           - name: paid_source
             description: where the source from
           - name: campaign_key
+            tests:
+              - unique
+              - not_null
             description: key of the campaign
           - name: camPGN_name
             description: idk
@@ -97,6 +100,9 @@ sources:
             description: where the source from
           - name: campaign_key
             description: key of the campaign
+            tests:
+              - unique
+              - not_null
           - name: camPGN_name
             description: idk
           - name: ads_cost
@@ -115,6 +121,9 @@ sources:
           - name: paid_source
             description: where the source from
           - name: campaign_key
+            tests:
+              - unique
+              - not_null
             description: key of the campaign
           - name: camPGN_name
             description: idk
@@ -134,6 +143,9 @@ sources:
           - name: paid_source
             description: where the source from
           - name: campaign_key
+            tests:
+              - unique
+              - not_null
             description: key of the campaign
           - name: camPGN_name
             description: idk
